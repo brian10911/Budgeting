@@ -1,0 +1,95 @@
+*{
+    box-sizing: border-box;
+}
+.entries-container{
+    overflow-y:auto;
+    grid-area: entry;
+    border: solid 2px red;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "income"
+        "expense"
+}
+
+.incomeentry-display{
+    overflow-y:auto;
+    display:flex;
+    border:solid 2px red;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    padding: 6px 0;
+}
+.expenseentry-display{
+    overflow-y:auto;
+    display:flex;
+    border:solid 2px red;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+    padding: 6px 0;
+}
+
+.incomeentries-container{
+    grid-area: income;
+    border: solid 2px red;
+}
+
+.expenseentries-container{
+    grid-area: expense;
+    border: solid 2px red;
+}
+
+.info-container{
+    grid-area: info;
+    border: solid 2px red;
+}
+
+.input-container{
+    grid-area: input;
+    border: solid 2px red;
+}
+
+.main-container{
+    height: 100%;
+    box-sizing:border-box;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 2fr;
+    grid-template-areas:
+        "input input info"
+        "input input info"
+        "input input entry"
+        "input input entry";
+    gap:15px;
+}
+
+
+.sidebar-container{
+    grid-area: sidebar;
+    border: solid 2px red;
+}
+
+.whole-container{
+    height: 97.3vh;
+    width: 98.2vw;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr;
+    grid-template-rows: auto minmax(0, 1fr) minmax(0,1fr);
+    grid-template-areas: "sidebar main main"
+    "sidebar main main"
+    "sidebar main main";
+}
+
+.income-container,.expense-container{
+    display:none;
+    
+}
+#save-income{
+    display:flex;
+    flex-wrap: wrap;
+}
