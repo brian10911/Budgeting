@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgeTing</title>
+    <link rel="stylesheet" href="budget.css">
+</head>
+<body>
+    <div class="whole-container">
+        <div class="sidebar-container">
+            <div class="header">
+                <h3>Budgeting</h3>
+            </div>
+            <a href="budget.html" class="budget-tab">
+                <p>Home</p>
+            </a>
+            <a href="planner.html" class="planner-tab">
+                <p>Budget Planner</p>
+            </a>
+        </div>
+        <div class="main-container">
+            <div class="input-container">
+                <div class="income-expense">
+                    <p>Choose Your Entry:</p>
+                    <button type="submit" id="income-entry">Income</button>
+                    <button type="submit" id="expense-entry">Expense</button>
+                </div>
+                <div class="income-container">
+                    <form id="income-form">
+                        <label for="income-date">Date: </label>
+                        <input type="date" id="income-date" name="income-date" required>
+
+                        <label for="income">Income:</label>
+                        <input type="number" id="income" name="income" placeholder="0.00" step="0.01" min="0.00" required>
+                        <button type="submit" id="save-income">Save Income</button>
+                    </form>
+                    <button type="submit" id="expense-tab">Add Expenses</button>
+                </div>
+                <div class="expense-container">
+                    <form id="expense-form">
+                        <label for="expense-date">Date: </label>
+                        <input type="date" id="expense-date" name="expense-date" required>
+
+                        <label for="expense">Expense:</label>
+                        <input type="number" id="expense" name="expense" placeholder="0.00" step="0.01" min="0.00" required>
+
+                        <label for="expense-type">Expense Type:</label>
+                        <select id="expense-type" name="types">
+                            <option value="default"></option>
+                            <option value="housing">Housing</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="food">Food</option>
+                            <option value="transportation">Transportion</option>
+                            <option value="entertainment">Entertainment</option>
+                        </select>
+
+                        <button type="submit" id="save-expense">Save Expense</button>
+                    </form>
+                    <button type="submit" id="income-tab">Add Income</button>
+                </div>
+            </div>
+            <div class="info-container"></div>
+            <div class="entries-container">
+                <div class="incomeentries-container"></div>
+                <div class="expenseentries-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="budget.js"></script>
+</body>
+</html>
