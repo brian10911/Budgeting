@@ -1,0 +1,21 @@
+.whole-container{
+    height: 97.3vh;
+    width: 96.3vw;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr;
+    grid-template-rows: auto minmax(0, 1fr) minmax(0,1fr);
+    grid-template-areas: "sidebar main main"
+                         "sidebar main main"
+                         "sidebar main main";
+}
+
+.sidebar-container{
+    grid-area: sidebar;
+    border: 2px solid red;
+}
+
+.main-container{
+    grid-area: main;
+    border: 2px solid red;
+}
