@@ -1,95 +1,206 @@
-*{
+body, h1, h2, h3, h4, h5, h6, p, ul, li, form, input, button, select {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-}
-.entries-container{
-    overflow-y:auto;
-    grid-area: entry;
-    border: solid 2px red;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        "income"
-        "expense"
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-.incomeentry-display{
-    overflow-y:auto;
-    display:flex;
-    border:solid 2px red;
-    justify-content: space-between;
+body {
+    background: #f6f8fa;
+    color: #222;
+    min-height: 100vh;
+}
+
+.whole-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar-container {
+    background: #232946;
+    color: #fff;
+    width: 220px;
+    min-width: 180px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar-container .header {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.sidebar-container a {
+    color: #eebbc3;
+    text-decoration: none;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.sidebar-container a:hover, .sidebar-container a.active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.main-container {
+    flex: 1;
+    padding: 2rem 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.income-expense {
+    display: flex;
+    gap: 1rem;
     align-items: center;
-    gap:1rem;
-    padding: 6px 0;
-}
-.expenseentry-display{
-    overflow-y:auto;
-    display:flex;
-    border:solid 2px red;
-    justify-content: space-between;
-    align-items: center;
-    gap:1rem;
-    padding: 6px 0;
+    margin-bottom: 1rem;
 }
 
-.incomeentries-container{
-    grid-area: income;
-    border: solid 2px red;
+.income-expense button {
+    background: #232946;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
 }
 
-.expenseentries-container{
-    grid-area: expense;
-    border: solid 2px red;
+.income-expense button:hover {
+    background: #eebbc3;
+    color: #232946;
 }
 
-.info-container{
-    grid-area: info;
-    border: solid 2px red;
+.income-container, .expense-container {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.input-container{
-    grid-area: input;
-    border: solid 2px red;
+.income-container.active, .expense-container.active {
+    display: flex;
 }
 
-.main-container{
-    height: 100%;
-    box-sizing:border-box;
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr 2fr;
-    grid-template-areas:
-        "input input info"
-        "input input info"
-        "input input entry"
-        "input input entry";
-    gap:15px;
+form label {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
 }
 
-
-.sidebar-container{
-    grid-area: sidebar;
-    border: solid 2px red;
+form input, form select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    width: 100%;
 }
 
-.whole-container{
-    height: 97.3vh;
-    width: 98.2vw;
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 1fr 5fr 5fr;
-    grid-template-rows: auto minmax(0, 1fr) minmax(0,1fr);
-    grid-template-areas: "sidebar main main"
-    "sidebar main main"
-    "sidebar main main";
+form button[type="submit"] {
+    background: #232946;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
 }
 
-.income-container,.expense-container{
-    display:none;
-    
+form button[type="submit"]:hover {
+    background: #eebbc3;
+    color: #232946;
 }
-#save-income{
-    display:flex;
+
+.info-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.totalincome-display, .totalexpense-display, .sum-display {
+    background: #eebbc3;
+    color: #232946;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    min-width: 140px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
+}
+
+.entries-container {
+    display: flex;
+    gap: 2rem;
     flex-wrap: wrap;
+}
+
+.incomeentries-container, .expenseentries-container {
+    flex: 1;
+    min-width: 220px;
+}
+
+.incomeentry-display, .expenseentry-display {
+    background: #f3f4f6;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.incomeentry-display button, .expenseentry-display button {
+    background: #232946;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.2rem 0.7rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.incomeentry-display button:hover, .expenseentry-display button:hover {
+    background: #eebbc3;
+    color: #232946;
+}
+
+@media (max-width: 900px) {
+    .whole-container {
+        flex-direction: column;
+    }
+    .sidebar-container {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    .main-container {
+        padding: 1rem;
+    }
+    .info-container, .entries-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
